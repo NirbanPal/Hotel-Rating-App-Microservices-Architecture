@@ -149,7 +149,7 @@ Eureka dashboard accessible at:
 ![PostmanApis](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/Postman.png)
 
 ### Postman Collection accessible at: 👉 
-https://schema.postman.com/json/collection/v2.1.0/collection.json
+https://sl1nk.com/tbtST
 
 
 ## 🧱 Project Highlights
