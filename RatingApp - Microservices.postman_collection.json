@@ -1,0 +1,511 @@
+{
+	"info": {
+		"_postman_id": "eceaee8b-c476-4faf-a407-aceee840d5aa",
+		"name": "RatingApp - Microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20974661"
+	},
+	"item": [
+		{
+			"name": "UserService",
+			"item": [
+				{
+					"name": "AddUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"jiten kumar Pal\",\r\n    \"email\": \"jitendra232@gmail.com\",\r\n    \"about\": \"I am a Manager.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllUser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/users/a047d7ca-d500-429e-a9c4-6f207ee14e56",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"a047d7ca-d500-429e-a9c4-6f207ee14e56"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GetUser",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/users/a047d7ca-d500-429e-a9c4-6f207ee14e56",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"users",
+										"a047d7ca-d500-429e-a9c4-6f207ee14e56"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Aug 2025 09:14:58 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"userId\": \"a047d7ca-d500-429e-a9c4-6f207ee14e56\",\n    \"name\": \"Hiran kumar\",\n    \"email\": \"hiran007@gmail.com\",\n    \"about\": \"I am a software engineer.\",\n    \"ratings\": [\n        {\n            \"ratingId\": \"688f1d012baa48cc233e6713\",\n            \"userId\": \"a047d7ca-d500-429e-a9c4-6f207ee14e56\",\n            \"hotelId\": \"f02f6f8b-07c7-4fdd-8226-f8cbbaed9418\",\n            \"rating\": 5,\n            \"feedback\": \"Nice ambience. Great view. Really good atmosphere\",\n            \"hotel\": {\n                \"id\": \"f02f6f8b-07c7-4fdd-8226-f8cbbaed9418\",\n                \"name\": \"Dreamland\",\n                \"location\": \"Gulmarg, Kashmir\",\n                \"about\": \"Great site seen and just beside airport\"\n            }\n        },\n        {\n            \"ratingId\": \"688f1dc32baa48cc233e6716\",\n            \"userId\": \"a047d7ca-d500-429e-a9c4-6f207ee14e56\",\n            \"hotelId\": \"f851daf7-957d-4698-b13b-57f0a9b938b8\",\n            \"rating\": 2,\n            \"feedback\": \"Staff behaviour is not good. Hotel was not neat and clean. Flies were there.\",\n            \"hotel\": {\n                \"id\": \"f851daf7-957d-4698-b13b-57f0a9b938b8\",\n                \"name\": \"Hotel Kasuri\",\n                \"location\": \" Ludhiyana, Punjab\",\n                \"about\": \"Great site seen and just beside airport\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "HotelService",
+			"item": [
+				{
+					"name": "addHotel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Hotel Rishi\",\r\n    \"location\": \"Kullu, Himachal Pradesh\",\r\n    \"about\": \"In the lap of mountains with great view of sea sight\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8082/hotels",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"hotels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getHotel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/hotels/f02f6f8b-07c7-4fdd-8226-f8cbbaed9418",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"hotels",
+								"f02f6f8b-07c7-4fdd-8226-f8cbbaed9418"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getHotel",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8082/hotels/f02f6f8b-07c7-4fdd-8226-f8cbbaed9418",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"hotels",
+										"f02f6f8b-07c7-4fdd-8226-f8cbbaed9418"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 09 Aug 2025 06:46:39 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"f02f6f8b-07c7-4fdd-8226-f8cbbaed9418\",\n    \"name\": \"Dreamland\",\n    \"location\": \"Gulmarg, Kashmir\",\n    \"about\": \"Great site seen and just beside airport\"\n}"
+						}
+					]
+				},
+				{
+					"name": "getAllHotels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/hotels",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"hotels"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RatingService",
+			"item": [
+				{
+					"name": "createRating",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"cfb5c70b-cfc1-495a-a846-e03045353d00\",\r\n    \"hotelId\":\"f851daf7-957d-4698-b13b-57f0a9b938b8\",\r\n    \"rating\":4,\r\n    \"feedback\":\"Not good. Not satishfied\"\r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8083/ratings",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"ratings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllRating",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"cfb5c70b-cfc1-495a-a846-e03045353d00\",\r\n    \"hotelId\":\"f02f6f8b-07c7-4fdd-8226-f8cbbaed9418\",\r\n    \"rating\":5,\r\n    \"feedback\":\"Good Hotel.\"\r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8083/ratings",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"ratings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRatingByUserId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"cfb5c70b-cfc1-495a-a846-e03045353d00\",\r\n    \"hotelId\":\"f02f6f8b-07c7-4fdd-8226-f8cbbaed9418\",\r\n    \"rating\":5,\r\n    \"feedback\":\"Good Hotel.\"\r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8083/ratings/users/cfb5c70b-cfc1-495a-a846-e03045353d00",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"ratings",
+								"users",
+								"cfb5c70b-cfc1-495a-a846-e03045353d00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRatingByHotelId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"cfb5c70b-cfc1-495a-a846-e03045353d00\",\r\n    \"hotelId\":\"f02f6f8b-07c7-4fdd-8226-f8cbbaed9418\",\r\n    \"rating\":5,\r\n    \"feedback\":\"Good Hotel.\"\r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8083/ratings/hotels/f02f6f8b-07c7-4fdd-8226-f8cbbaed9418",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"ratings",
+								"hotels",
+								"f02f6f8b-07c7-4fdd-8226-f8cbbaed9418"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ApiGateway",
+			"item": [
+				{
+					"name": "GetAllUser",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GetUser",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8084/users/a047d7ca-d500-429e-a9c4-6f207ee14e56",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"users",
+								"a047d7ca-d500-429e-a9c4-6f207ee14e56"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllRatings",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllHotels",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllHotelsDirectAccessProhibited",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get Staff",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
