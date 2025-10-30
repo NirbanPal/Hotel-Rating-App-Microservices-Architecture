@@ -1,0 +1,8 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false # As itself will work as service registry (eureka service) to avoid registering itself in service registry we are doing this. Cause we will register other services here as it will work as service registry
+    fetch-registry: false # that other services con not fetch this as service, cause it itself is a service registry it will help the registered services to fetch other registered services in it.
+server:
+  port: 8761

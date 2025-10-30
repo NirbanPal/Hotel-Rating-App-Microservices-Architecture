@@ -1,0 +1,110 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/microservices
+    username: root
+    password: Mysql@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name:  USER-SERVICE
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+#        dialect is not necessary to mention but here we are mentioning for study purpose
+
+  config:
+    import: optional:configserver:http://localhost:8085
+
+  #For setting this service as client as it can interact with rating service. Configures the service to validate JWTs as a resource server and authenticate to other services using OAuth2 client credentials via Okta
+  security: # Security configuration for OAuth2 resource server and client credentials
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://integrator-7616168.okta.com/oauth2/default # JWT issuer URI for validating tokens
+      client:
+        registration:
+          my-internal-client: # OAuth2 client registration id for internal service-to-service communication.
+            provider: okta # Identity provider set to Okta
+            authorization-grant-type: client_credentials  # Grant type for client credentials flow
+            scope: internal  # OAuth2 scope used for access control
+            client-id: 0oau4pfqo8mAPRLJT697 # Client ID for authentication with Okta
+            client-secret: jcUc7WWMy5CkUi0vh_W_ucNlaD6oZgI47pbw3I2LrJyocBzUVN6hesjSJenSRnun # Client secret for secure access
+
+#You also can use optional for optional parameter
+#spring.config.import=configserver:http://localhost:8085
+
+  #you also can define this at runtime when you will be running application jar file
+#  profiles:
+#    active: dev
+
+management:
+  health:
+    circuitbreakers:
+      enabled: true #enableing circuit breaker in health
+#    ratelimiters:
+#      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health # or "*" to include all or if you want to include specific then mention.
+  endpoint:
+    health:
+      show-details: always
+
+
+resilience4j:
+  circuitbreaker:
+    instances:
+       ratingHotelBreaker:  #name of the circuitbreaker
+         registerHealthIndicator: true
+         eventConsumerBufferSize: 10
+         failureRateThreshold: 50
+         minimumNumberOfCalls: 5
+         automaticTransitionFromOpenToHalfOpenEnabled: true
+         waitDurationInOpenState: 6s
+         permittedNumberOfCallsInHalfOpenState: 3
+         slidingWindowSize: 10
+         slidingWindowType: COUNT_BASED
+
+  retry:
+    instances:
+      ratingHotelService:
+        max-attempts: 3
+        wait-duration: 5s
+
+  rateLimiter:
+    instances:
+      userRateLimiter:
+        limit-refresh-period: 4s
+        limit-for-period: 2
+        timeout-duration: 2s
+
+okta:
+  oauth2:
+    issuer: https://integrator-7616168.okta.com/oauth2/default
+    audience: api://default
+
+#logging:
+#  level:
+#    io.github.resilience4j: DEBUG
+
+
+
+
+## By default these parameters are true even if you don't mention. For learning purpose it is mentioned.
+#eureka:
+#  instance:
+#    prefer-ip-address: true #prefer address when server watches
+##    instance-id: ${spring.application.name}:${server.port}
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      default-zone: http://localhost:8761/eureka

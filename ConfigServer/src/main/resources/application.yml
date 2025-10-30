@@ -1,0 +1,14 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: CONFIG-SERVER
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/NirbanPal/Rating-App-Config.git
+          clone-on-start: true
+          # --- Add these two lines for authentication ---
+  #        username: YourGitHubUsername
+  #        password: YourPastedPersonalAccessToken
