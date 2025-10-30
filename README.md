@@ -64,6 +64,17 @@ Security is implemented using OKTA OAuth 2.0 for authentication and authorizatio
 
 - Configuration provided via application.yml
 
+#### Provide your issuer, client-id, client-secret in ApiGateway/src/main/resources/application.yml
+```bash
+  okta:
+    oauth2:
+      issuer: your_issuer
+      audience: api://default
+      client-id: your_client_id
+      client-secret: your_client_secret
+      scopes: openid, profile, email, offline_access
+```
+
 ## ⚡ Fault Tolerance & Rate Limiting
 
 Implemented using Resilience4j:
