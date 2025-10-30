@@ -19,7 +19,7 @@ This project goes beyond simple CRUD — it’s a deep-dive into real-world micr
 - Circuit Breaker, Retry, and Fallback Mechanisms
 
 ## 🧩 Architecture Diagram
-TBD
+![HotelRatingAppArchitecture_Diagram](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/HotelRatingAppArchitecture.png)
 
 ## 🏗️ Microservices Overview
 
