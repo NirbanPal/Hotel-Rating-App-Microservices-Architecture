@@ -136,6 +136,7 @@ eureka:
 
 Eureka dashboard accessible at:
 👉 http://localhost:8761
+![eurekaDashboard](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/ServiceRegistry.png)
 
 ## 🧪 Testing
 
