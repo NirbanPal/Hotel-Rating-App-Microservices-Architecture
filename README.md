@@ -149,12 +149,18 @@ Eureka dashboard accessible at:
 ### Download Jmeter here: <a href="https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.6.3.zip"> Jmeter</a>
 
 ### Test Rate Limiter with Jmeter:
-![PostmanApis](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/Junit1.png)
-![PostmanApis](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/Junit2.png)
-![PostmanApis](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/Junit3.png)
-![PostmanApis](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/Junit4.png)
-![PostmanApis](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/Junit5.png)
-![PostmanApis](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/Junit6.png)
+1. Create Thread group:
+![JUnitS1](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/Junit1.png)
+2. Define number of users/threads:
+![JUnitS2](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/Junit2.png)
+3. Add HttpRequest:
+![JUnitS3](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/Junit3.png)
+4. Mention Server name or ip, port, HTTP Request, path, protocol(if required):
+![JUnitS4](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/Junit4.png)
+5. Add Listener(View result tree)
+![JUnitS5](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/Junit5.png)
+6.Result(Since the limit-per-period is 2 and the limit-refresh-period is 4 seconds, it means that only 2 requests are allowed within every 4-second window. Therefore, the first 2 HTTP requests were successful, while the remaining requests exceeded the limit and were unsuccessful (rejected due to rate limiting).)
+![JUnitS6](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/Junit6.png)
 
 
 ### Postman APIs
