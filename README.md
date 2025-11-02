@@ -19,7 +19,7 @@ This project goes beyond simple CRUD — it’s a deep-dive into real-world micr
 - Circuit Breaker, Retry, and Fallback Mechanisms
 
 ## 🧩 Architecture Diagram
-![HotelRatingAppArchitecture_Diagram](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/HotelRatingAppArchitecture.png)
+![HotelRatingAppArchitecture_Diagram](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/HotelRatingAppArchitecture.png)
 
 ## 🏗️ Microservices Overview
 
@@ -146,6 +146,13 @@ Eureka dashboard accessible at:
 
 - Actuator endpoints for health monitoring
 
+
+### Postman APIs
+![PostmanApis](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/Postman.png)
+
+### Postman Collection accessible at: 👉 
+[Postman Collection](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/RatingApp%20-%20Microservices.postman_collection.json)
+
 ### Download Jmeter here: <a href="https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.6.3.zip"> Jmeter</a>
 
 ### Test Rate Limiter with Jmeter:
@@ -159,15 +166,12 @@ Eureka dashboard accessible at:
 ![JUnitS4](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/Junit4.png)
 5. Add Listener(View result tree)
 ![JUnitS5](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/Junit5.png)
-6.Result(Since the limit-per-period is 2 and the limit-refresh-period is 4 seconds, it means that only 2 requests are allowed within every 4-second window. Therefore, the first 2 HTTP requests were successful, while the remaining requests exceeded the limit and were unsuccessful (rejected due to rate limiting).)
+6. CASE 1: Result(Since the timeout-durationis 0s and limit-per-period is 2 and the limit-refresh-period is 4 seconds, it means that only 2 requests are allowed within every 4-second window. Therefore, the first 2 HTTP requests were successful, while the remaining requests exceeded the limit and were unsuccessful (rejected due to rate limiting).)
 ![JUnitS6](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/Junit6.png)
-
-
-### Postman APIs
-![PostmanApis](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/Postman.png)
-
-### Postman Collection accessible at: 👉 
-[Postman Collection](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/RatingApp%20-%20Microservices.postman_collection.json)
+   CASE2: Result(Since the limit-refresh-period is 4 seconds, the limit-for-period is 2, and the timeout-duration is 2 seconds, it means that 2 requests are allowed every 4-second window. However, because the timeout duration is 2 seconds, additional requests can wait for available permits within that window. As a result, a total of 4 requests were successful — the first 2 were processed immediately, and the next 2 succeeded after waiting for the permits to refresh. Any further requests beyond this were rejected due to rate limiting.)
+![JUnitS7](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/Junit7.png)
+7. Requests that exceeded the limit were handled by the fallback method, which returned dummy data instead of failing completely. This ensures that the endpoint remains responsive and does not break, even when the rate limit is exceeded.
+![JUnitS8](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/Junit8.png)
 
 
 ## 🧱 Project Highlights
@@ -216,7 +220,6 @@ mvn spring-boot:run -pl api-gateway,user-service,hotel-service,rating-service
 ```
 
 ### Access Eureka Dashboard → http://localhost:8761
-![PostmanApis](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/Postman.png)
 
 ## 🧠 Learnings & Key Takeaways
 
