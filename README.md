@@ -155,7 +155,7 @@ Eureka dashboard accessible at:
 
 ### Download Jmeter here: <a href="https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.6.3.zip"> Jmeter</a>
 
-### Test Rate Limiter with Jmeter:
+### Test Rate Limiter with Jmeter(Load Testing):
 1. Create Thread group:
 ![JUnitS1](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/ScreenShorts/Junit1.png)
 2. Define number of users/threads:
