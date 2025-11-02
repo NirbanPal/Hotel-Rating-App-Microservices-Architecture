@@ -145,6 +145,8 @@ Eureka dashboard accessible at:
 
 - Actuator endpoints for health monitoring
 
+### Download Jmeter here: <a href="https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.6.3.zip"> Jmeter</a>
+
 ### Postman APIs
 ![PostmanApis](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/Postman.png)
 
@@ -198,6 +200,7 @@ mvn spring-boot:run -pl api-gateway,user-service,hotel-service,rating-service
 ```
 
 ### Access Eureka Dashboard → http://localhost:8761
+![PostmanApis](https://github.com/NirbanPal/Hotel-Rating-App-Microservices-Architecture/blob/main/Postman.png)
 
 ## 🧠 Learnings & Key Takeaways
 
