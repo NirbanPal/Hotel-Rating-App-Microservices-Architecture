@@ -4,7 +4,7 @@ A production-grade microservices-based Hotel Rating Application built with Sprin
 
 ## 🚀 Overview
 
-The Hotel Rating App enables users to explore hotels, submit ratings, and view aggregated reviews — all powered by independent microservices that communicate through a Service Registry (Eureka) and are secured via API Gateway Authentication.
+The Customer Insights App/The Hotel Rating and Review App enables users to explore hotels, submit ratings, and view aggregated reviews — all powered by independent microservices that communicate through a Service Registry (Eureka) and are secured via API Gateway Authentication.
 
 This project goes beyond simple CRUD — it’s a deep-dive into real-world microservice architecture, including:
 - Service Discovery (Eureka)
