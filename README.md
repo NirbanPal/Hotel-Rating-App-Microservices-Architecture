@@ -1,4 +1,4 @@
-# 🏨 Hotel Rating App — Microservices Architecture
+# 🏨 Yelp - The Hotel Rating and Review App — Microservices Architecture
 
 A production-grade microservices-based Hotel Rating Application built with Spring Boot and Spring Cloud, designed to demonstrate distributed architecture, inter-service communication, centralized configuration, fault tolerance, and enterprise-level security using OKTA OAuth2.
 
